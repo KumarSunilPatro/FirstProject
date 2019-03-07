@@ -1,0 +1,69 @@
+<!--<header-app></header-app>-->
+<style>
+.text-danger{
+    color:red;
+}
+h1{
+    text-align: center;
+    color:darkblue;
+
+}
+.container{
+    margin-left: 500px;
+}
+
+</style>
+<h1> This is my Login Page</h1>
+<div class="container">
+<form name="myForm" #user="ngForm" (submit)="onSubmit(user.value)">
+    FName:
+     <input type="text" name="Fname" #name="ngModel" [(ngModel)]="user.name" required pattern="[a-zA-Z]+" />
+     <span *ngIf="name.hasError('required') && name.dirty" class="text-danger">FName is required</span>
+     <span *ngIf="name.hasError('pattern') && name.dirty" class="text-danger">Only alphabets allowed</span>
+     <br><br>  
+     LName:
+     <input type="text" name="lname" #name1="ngModel" [(ngModel)]="user.name1" required pattern="[a-zA-Z]+" />
+     <span *ngIf="name1.hasError('required') && name1.dirty" class="text-danger">LName is required</span>
+     <span *ngIf="name1.hasError('pattern') && name1.dirty" class="text-danger">Only alphabets allowed</span>
+     <br><br>
+     Phone Number:
+     <input name="phone"  #phonenumber="ngModel" [(ngModel)]="user.phonenumber" required pattern="[0-9]+" />
+     <span *ngIf="phonenumber.hasError('required') && phonenumber.dirty" class="text-danger">Phone is required</span>
+     <span *ngIf="phonenumber.hasError('pattern') && phonenumber.dirty" class="text-danger">Only Numbers allowed</span>
+     <br><br>
+     Emil ID:
+     <input type=" email" name="email"  #email="ngModel" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\[a-z]{2,4}" />
+     <span *ngIf="email.hasError('required')&&email.dirty" class="text-danger">Email is Required</span>
+     <span *ngIf="email.hasError('pattern')&&email.dirty" class="text-danger">vaild Email is Required</span>
+     <br><br>
+     Male: 
+     <input type="radio" name="gender" value="Male"  ngModel required #gender="ngModel"  />
+     FeMale
+     <input type="radio" name="gender" value="feMale"  ngModel required #gender="ngModel"  />
+     <div [hidden]="!gender.hasError('required')">
+            The gender is required
+          </div>
+          L
+          State:<select name="State" #state="ngModel" [(ngModel)]="user.state" requeired>
+     <option value="1">Karnataka</option>
+     <option value="2">AndraPredesh</option>
+     <option value="3">Tamilnadu</option>
+     <option value="4">Kerla</option>
+     <option value="5">Maharastra</option>
+     <option value="6">Odisha</option>
+</select>
+<br><br>
+     <button type="submit" [disabled]="!user.valid" class="btn btn-primary">SignUp</button>
+   
+   </form>
+   </div>
+
+   <hr>
+   <div> Form Value: {{ user.value | json }}</div>
+   <div> Form Valid Status: {{ user.status | json }} </div>
+   
+   <div>FName Value: {{name.value}}</div>
+   <div>LName Value:{{ name1.value}}</div>
+   <div>Phone Value: {{phonenumber.value}}</div>
+   <div>Email Value: {{email.value}}</div>
+   <div>State Value: {{state.value}}</div>

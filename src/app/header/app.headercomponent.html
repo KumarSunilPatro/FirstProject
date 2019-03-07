@@ -1,0 +1,46 @@
+<!-- <h1>Hi This is HeaderComponent</h1>
+<h1 >{{name}}</h1>
+<hr>
+<h1 [innerHtml]="name"></h1>
+<hr>
+<input [value]="name">
+<hr>
+<button [disabled]="name">click me</button>
+<hr>
+<button (click)="f1()">clickme</button>
+<hr>
+<h1>{{appTitle}}</h1>
+<hr>
+<ul>
+    <li>{{id}}</li>
+</ul>
+<table class="table table-borderless">
+    <thead>
+            
+    </thead>
+    <tbody>
+        <tr *ngFor=" let pro of ProductDetails">
+            <th>{{pro.productName}}</th>
+            <th>{{pro.description}}</th>
+            <th><img [src]="pro.imageUrl"/><th>
+            </tr>
+            </tbody>
+            </table>
+    <h1 class="blue" [class.red]="true">hiiiiiii</h1>  
+    <h1  class=" blue" [class]="colortoapply">hello</h1>     
+    <h1 [ngClass]="mulclass">angularjs</h1>
+    <h1 [style.background-color]="'red'">angular2</h1>
+ <h2 [style.font-size-px]="size">angular4</h2>
+ <h3 [ngStyle]="styletoapply">angular5</h3>
+   
+     -->
+     <div style="text-align:center">
+
+     <p>
+         <textarea cols="30" rows="10" [(ngModel)]='mystr' mexlenght="50"></textarea>
+      input character limit is:{{mystr| testpipe}}
+        </p>
+        </div>
+    
+
+      
